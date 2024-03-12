@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--projecttitle--><title>Bendul House</title><!--projecttitle-end-->
+		<!--projectdescription--><meta name="description" content="Bendul House Tour"><!--projectdescription-end-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+		
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<!-- Insert this line above script imports  -->
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		
+		<script src="imagedata.js"></script>
+		<script src="jquery.js"></script>
+		<script src="three.min.js"></script>
+		<script src="panolens.min.js"></script>
+		
+		<!-- Insert this line after script imports -->
+		<script>if (window.module) module = window.module;</script>
+		
+		<style>
+		
+			
+						
+			/* SCROLLBAR STYLING */
+			/* width */
+			::-webkit-scrollbar {
+				width: 0.25em;
+				height: 0.25em;
+			}
+			/* Track */
+			::-webkit-scrollbar-track {
+				background: #2c3643; 
+			}
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+				background: #0d9e59; 
+				transition: background .5s;
+			}
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+				background: #00e075; 
+			}
+
+
+			html, body {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: #000;
+				color; black;
+			}
+
+			a:link, a:visited{
+				color: #bdc3c7;	
+			}
+
+			.fullwrapper{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: black;
+			}
+			
+			#container {
+                width: 100%;
+                height: 100%;
+            }
+			
+			#tmp{
+				position: fixed;
+				top: 0;
+				left: 0; 
+				right: 0;
+				bottom: 0;
+				padding: 3em;
+				background-color: rgba(0,0,0,.5);
+				backdrop-filter: blur(5px);
+				display: none;
+			}
+		</style>
+	</head>
+	<body id="body">
+	    <div id="container" style="color: black;"></div>
+    	
+		
+		
+		<!--customhtml--><div class='customhotspot' id='IMG_20240106_152750_lmc_8'></div><div class='customhotspot' id='IMG_20240106_153121_lmc_8'></div><div class='customhotspot' id='IMG_20240106_153242_lmc_8'></div><div class='customhotspot' id='IMG_20240106_153522_lmc_8'></div><div class='customhotspot' id='IMG_20240106_154011_lmc_8'></div><div class='customhotspot' id='IMG_20240106_154206_lmc_8'><div onclick='chclickinfospotIMG_20240106_154206_lmc_81();' id='infospotIMG_20240106_154206_lmc_81' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/HopstarterSoftScrapsButtonInfo10.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='IMG_20240106_154443_lmc_8'></div><div class='customhotspot' id='IMG_20240106_154701_lmc_8'></div><div class='customhotspot' id='IMG_20240106_154835_lmc_8'></div><div class='customhotspot' id='IMG_20240106_155053_lmc_8'></div><div class='customhotspot' id='IMG_20240106_155312_lmc_8'></div><div class='customhotspot' id='IMG_20240106_155515_lmc_8'></div><div class='customhotspot' id='IMG_20240106_155823_lmc_8'></div><div class='customhotspot' id='IMG_20240106_155951_lmc_8'></div><div class='customhotspot' id='IMG_20240106_160211_lmc_8'></div><div class='customhotspot' id='IMG_20240106_160343_lmc_8'></div><div class='customhotspot' id='IMG_20240106_160621_lmc_8'></div><div class='customhotspot' id='IMG_20240106_161158_lmc_8'></div><div class='customhotspot' id='IMG_20240106_170807_lmc_8'></div><div class='customhotspot' id='IMG_20240106_171006_lmc_8'></div><!--customhtml-end-->
+		
+		<div id="tmp">
+			<div style="width: 100%; height: 100%; overflow: hidden; overflow-y: auto; box-sizing: border-box; position: relative;" id="tmpcontent"></div>
+			<div class="mediaclosebutton" onclick="hideTemp()"><i class="fa fa-times-circle"></i></div>
+		</div>
+
+		<div id="loading" class="fullwrapper" style="display: table; width: 100%; height: 100%;">
+    		<div style="display: table-cell; vertical-align: middle; text-align: center; color: white; font-size: 30px; padding: 50px;">
+    			<!--loadingtext-->Tunggu sekejap ye nak...<!--loadingtext-end-->
+				<div id="loadingperc" style="font-size:12px;"></div>
+    		</div>
+    	</div>
+		
+    	<script>
+			
+            var container = document.querySelector( '#container' );
+			/*panolens*/
+var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
+/*panolens-end*/
+			
+			viewer.addUpdateCallback(function(){});
+			
+			/*panoramas*/
+var IMG_20240106_152750_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_152750_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_152750_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_152750_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_152750_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_152750_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_152750_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[2].data, true );
+					infospotIMG_20240106_152750_lmc_80.position.set( 4800.91, -1371.67, 62.69 );
+					IMG_20240106_152750_lmc_8.add(infospotIMG_20240106_152750_lmc_80);
+infospotIMG_20240106_152750_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_153121_lmc_8');
+});
+viewer.add( IMG_20240106_152750_lmc_8 );
+var IMG_20240106_153121_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_153121_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_153121_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_153121_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_153121_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_153121_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_153121_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_153121_lmc_80.position.set( -4636.75, -1827.29, -275.11 );
+					IMG_20240106_153121_lmc_8.add(infospotIMG_20240106_153121_lmc_80);
+infospotIMG_20240106_153121_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_152750_lmc_8');
+});
+var infospotIMG_20240106_153121_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_153121_lmc_81.position.set( 2667.78, -1421.07, 3971.43 );
+					IMG_20240106_153121_lmc_8.add(infospotIMG_20240106_153121_lmc_81);
+infospotIMG_20240106_153121_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_153242_lmc_8');
+});
+var infospotIMG_20240106_153121_lmc_82 = new PANOLENS.Infospot( 512, hotspotIcons[6].data, true );
+					infospotIMG_20240106_153121_lmc_82.position.set( 4580.00, -1660.98, 1090.08 );
+					IMG_20240106_153121_lmc_8.add(infospotIMG_20240106_153121_lmc_82);
+infospotIMG_20240106_153121_lmc_82.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_161158_lmc_8');
+});
+viewer.add( IMG_20240106_153121_lmc_8 );
+var IMG_20240106_153242_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_153242_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_153242_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_153242_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_153242_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_153242_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_153242_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_153242_lmc_80.position.set( -2237.87, -1604.64, -4164.79 );
+					IMG_20240106_153242_lmc_8.add(infospotIMG_20240106_153242_lmc_80);
+infospotIMG_20240106_153242_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_153121_lmc_8');
+});
+var infospotIMG_20240106_153242_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_153242_lmc_81.position.set( 4548.14, -2033.64, 302.23 );
+					IMG_20240106_153242_lmc_8.add(infospotIMG_20240106_153242_lmc_81);
+infospotIMG_20240106_153242_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_153522_lmc_8');
+});
+viewer.add( IMG_20240106_153242_lmc_8 );
+var IMG_20240106_153522_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_153522_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_153522_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_153522_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_153522_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_153522_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_153522_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_153522_lmc_80.position.set( -4436.50, -2298.33, -50.36 );
+					IMG_20240106_153522_lmc_8.add(infospotIMG_20240106_153522_lmc_80);
+infospotIMG_20240106_153522_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_153242_lmc_8');
+});
+var infospotIMG_20240106_153522_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[11].data, true );
+					infospotIMG_20240106_153522_lmc_81.position.set( 3527.20, -3497.23, 525.91 );
+					IMG_20240106_153522_lmc_8.add(infospotIMG_20240106_153522_lmc_81);
+infospotIMG_20240106_153522_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154011_lmc_8');
+});
+viewer.add( IMG_20240106_153522_lmc_8 );
+var IMG_20240106_154011_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_154011_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_154011_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_154011_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_154011_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_154011_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_154011_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154011_lmc_80.position.set( -3827.15, -3153.72, -577.98 );
+					IMG_20240106_154011_lmc_8.add(infospotIMG_20240106_154011_lmc_80);
+infospotIMG_20240106_154011_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_153522_lmc_8');
+});
+var infospotIMG_20240106_154011_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154011_lmc_81.position.set( -1907.39, -3018.02, 3491.93 );
+					IMG_20240106_154011_lmc_8.add(infospotIMG_20240106_154011_lmc_81);
+infospotIMG_20240106_154011_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154206_lmc_8');
+});
+var infospotIMG_20240106_154011_lmc_82 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154011_lmc_82.position.set( 2873.48, -2740.03, 3026.98 );
+					IMG_20240106_154011_lmc_8.add(infospotIMG_20240106_154011_lmc_82);
+infospotIMG_20240106_154011_lmc_82.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154443_lmc_8');
+});
+var infospotIMG_20240106_154011_lmc_83 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154011_lmc_83.position.set( 4015.38, -2382.56, -1778.26 );
+					IMG_20240106_154011_lmc_8.add(infospotIMG_20240106_154011_lmc_83);
+infospotIMG_20240106_154011_lmc_83.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154701_lmc_8');
+});
+var infospotIMG_20240106_154011_lmc_84 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_154011_lmc_84.position.set( 2707.11, -651.74, -4140.71 );
+					IMG_20240106_154011_lmc_8.add(infospotIMG_20240106_154011_lmc_84);
+infospotIMG_20240106_154011_lmc_84.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_170807_lmc_8');
+});
+var infospotIMG_20240106_154011_lmc_85 = new PANOLENS.Infospot( 512, hotspotIcons[11].data, true );
+					infospotIMG_20240106_154011_lmc_85.position.set( 4700.69, -808.07, -1491.43 );
+					IMG_20240106_154011_lmc_8.add(infospotIMG_20240106_154011_lmc_85);
+infospotIMG_20240106_154011_lmc_85.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155312_lmc_8');
+});
+viewer.add( IMG_20240106_154011_lmc_8 );
+var IMG_20240106_154206_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_154206_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_154206_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_154206_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_154206_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_154206_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_154206_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154206_lmc_80.position.set( 1231.93, -2812.33, -3939.40 );
+					IMG_20240106_154206_lmc_8.add(infospotIMG_20240106_154206_lmc_80);
+infospotIMG_20240106_154206_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154011_lmc_8');
+});
+var infospotIMG_20240106_154206_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotIMG_20240106_154206_lmc_81.position.set( 613.56, -1500.41, 4723.52 );
+					infospotIMG_20240106_154206_lmc_81.visible = false;
+					IMG_20240106_154206_lmc_8.add(infospotIMG_20240106_154206_lmc_81);
+infospotIMG_20240106_154206_lmc_81.addEventListener('click', function(){
+window.open( 'https://www.youtube.com/@Javi_Gaming', '_blank');
+});
+viewer.add( IMG_20240106_154206_lmc_8 );
+var IMG_20240106_154443_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_154443_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_154443_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_154443_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_154443_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_154443_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_154443_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154443_lmc_80.position.set( -2586.18, -2521.52, -3449.42 );
+					IMG_20240106_154443_lmc_8.add(infospotIMG_20240106_154443_lmc_80);
+infospotIMG_20240106_154443_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154011_lmc_8');
+});
+viewer.add( IMG_20240106_154443_lmc_8 );
+var IMG_20240106_154701_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_154701_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_154701_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_154701_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_154701_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_154701_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_154701_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154701_lmc_80.position.set( -4027.68, -2215.57, 1949.99 );
+					IMG_20240106_154701_lmc_8.add(infospotIMG_20240106_154701_lmc_80);
+infospotIMG_20240106_154701_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154011_lmc_8');
+});
+var infospotIMG_20240106_154701_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_154701_lmc_81.position.set( -1374.88, -1373.49, -4597.92 );
+					IMG_20240106_154701_lmc_8.add(infospotIMG_20240106_154701_lmc_81);
+infospotIMG_20240106_154701_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_170807_lmc_8');
+});
+var infospotIMG_20240106_154701_lmc_82 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_154701_lmc_82.position.set( -3394.45, -825.07, -3567.94 );
+					IMG_20240106_154701_lmc_8.add(infospotIMG_20240106_154701_lmc_82);
+infospotIMG_20240106_154701_lmc_82.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_161158_lmc_8');
+});
+var infospotIMG_20240106_154701_lmc_83 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154701_lmc_83.position.set( 4599.44, -1533.67, 1194.89 );
+					IMG_20240106_154701_lmc_8.add(infospotIMG_20240106_154701_lmc_83);
+infospotIMG_20240106_154701_lmc_83.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154835_lmc_8');
+});
+var infospotIMG_20240106_154701_lmc_84 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154701_lmc_84.position.set( 4698.90, -1322.92, -1053.05 );
+					IMG_20240106_154701_lmc_8.add(infospotIMG_20240106_154701_lmc_84);
+infospotIMG_20240106_154701_lmc_84.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155312_lmc_8');
+});
+viewer.add( IMG_20240106_154701_lmc_8 );
+var IMG_20240106_154835_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_154835_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_154835_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_154835_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_154835_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_154835_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_154835_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154835_lmc_80.position.set( -4449.73, -1778.92, -1408.37 );
+					IMG_20240106_154835_lmc_8.add(infospotIMG_20240106_154835_lmc_80);
+infospotIMG_20240106_154835_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154701_lmc_8');
+});
+var infospotIMG_20240106_154835_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154835_lmc_81.position.set( 2636.29, -2382.14, -3509.14 );
+					IMG_20240106_154835_lmc_8.add(infospotIMG_20240106_154835_lmc_81);
+infospotIMG_20240106_154835_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155312_lmc_8');
+});
+var infospotIMG_20240106_154835_lmc_82 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_154835_lmc_82.position.set( 3357.86, -2401.98, 2805.48 );
+					IMG_20240106_154835_lmc_8.add(infospotIMG_20240106_154835_lmc_82);
+infospotIMG_20240106_154835_lmc_82.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155053_lmc_8');
+});
+var infospotIMG_20240106_154835_lmc_83 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_154835_lmc_83.position.set( -3052.82, -1144.83, 3781.06 );
+					IMG_20240106_154835_lmc_8.add(infospotIMG_20240106_154835_lmc_83);
+infospotIMG_20240106_154835_lmc_83.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_160343_lmc_8');
+});
+var infospotIMG_20240106_154835_lmc_84 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_154835_lmc_84.position.set( 4831.41, 1229.69, 244.70 );
+					IMG_20240106_154835_lmc_8.add(infospotIMG_20240106_154835_lmc_84);
+infospotIMG_20240106_154835_lmc_84.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155515_lmc_8');
+});
+viewer.add( IMG_20240106_154835_lmc_8 );
+var IMG_20240106_155053_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_155053_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_155053_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_155053_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_155053_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_155053_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_155053_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155053_lmc_80.position.set( -3626.65, -2065.76, -2740.25 );
+					IMG_20240106_155053_lmc_8.add(infospotIMG_20240106_155053_lmc_80);
+infospotIMG_20240106_155053_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154835_lmc_8');
+});
+var infospotIMG_20240106_155053_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
+					infospotIMG_20240106_155053_lmc_81.position.set( -1850.82, -502.12, 4607.53 );
+					IMG_20240106_155053_lmc_8.add(infospotIMG_20240106_155053_lmc_81);
+infospotIMG_20240106_155053_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_160621_lmc_8');
+});
+viewer.add( IMG_20240106_155053_lmc_8 );
+var IMG_20240106_155312_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_155312_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_155312_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_155312_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_155312_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_155312_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_155312_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155312_lmc_80.position.set( -4728.07, -1511.18, 565.41 );
+					IMG_20240106_155312_lmc_8.add(infospotIMG_20240106_155312_lmc_80);
+infospotIMG_20240106_155312_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154701_lmc_8');
+});
+var infospotIMG_20240106_155312_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155312_lmc_81.position.set( -2649.67, -2206.57, 3616.58 );
+					IMG_20240106_155312_lmc_8.add(infospotIMG_20240106_155312_lmc_81);
+infospotIMG_20240106_155312_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154835_lmc_8');
+});
+var infospotIMG_20240106_155312_lmc_82 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_155312_lmc_82.position.set( -4240.48, -864.97, -2494.97 );
+					IMG_20240106_155312_lmc_8.add(infospotIMG_20240106_155312_lmc_82);
+infospotIMG_20240106_155312_lmc_82.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_171006_lmc_8');
+});
+viewer.add( IMG_20240106_155312_lmc_8 );
+var IMG_20240106_155515_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_155515_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_155515_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_155515_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_155515_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_155515_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_155515_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155515_lmc_80.position.set( -3633.00, -3427.75, -41.41 );
+					IMG_20240106_155515_lmc_8.add(infospotIMG_20240106_155515_lmc_80);
+infospotIMG_20240106_155515_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154835_lmc_8');
+});
+var infospotIMG_20240106_155515_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_155515_lmc_81.position.set( 353.98, -354.45, -4967.52 );
+					IMG_20240106_155515_lmc_8.add(infospotIMG_20240106_155515_lmc_81);
+infospotIMG_20240106_155515_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155823_lmc_8');
+});
+viewer.add( IMG_20240106_155515_lmc_8 );
+var IMG_20240106_155823_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_155823_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_155823_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_155823_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_155823_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_155823_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_155823_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155823_lmc_80.position.set( -1845.49, -3349.40, -3215.11 );
+					IMG_20240106_155823_lmc_8.add(infospotIMG_20240106_155823_lmc_80);
+infospotIMG_20240106_155823_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_160211_lmc_8');
+});
+var infospotIMG_20240106_155823_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155823_lmc_81.position.set( -54.74, -4150.02, 2779.00 );
+					IMG_20240106_155823_lmc_8.add(infospotIMG_20240106_155823_lmc_81);
+infospotIMG_20240106_155823_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155515_lmc_8');
+});
+var infospotIMG_20240106_155823_lmc_82 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155823_lmc_82.position.set( -3984.11, -2994.11, 333.36 );
+					IMG_20240106_155823_lmc_8.add(infospotIMG_20240106_155823_lmc_82);
+infospotIMG_20240106_155823_lmc_82.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155951_lmc_8');
+});
+viewer.add( IMG_20240106_155823_lmc_8 );
+var IMG_20240106_155951_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_155951_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_155951_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_155951_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_155951_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_155951_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_155951_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_155951_lmc_80.position.set( 3756.72, -2937.48, -1488.17 );
+					IMG_20240106_155951_lmc_8.add(infospotIMG_20240106_155951_lmc_80);
+infospotIMG_20240106_155951_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155823_lmc_8');
+});
+viewer.add( IMG_20240106_155951_lmc_8 );
+var IMG_20240106_160211_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_160211_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_160211_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_160211_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_160211_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_160211_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_160211_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_160211_lmc_80.position.set( -3538.75, -2770.40, 2174.18 );
+					IMG_20240106_160211_lmc_8.add(infospotIMG_20240106_160211_lmc_80);
+infospotIMG_20240106_160211_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155823_lmc_8');
+});
+viewer.add( IMG_20240106_160211_lmc_8 );
+var IMG_20240106_160343_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_160343_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_160343_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_160343_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_160343_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_160343_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_160343_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_160343_lmc_80.position.set( 4157.86, -2336.67, -1478.69 );
+					IMG_20240106_160343_lmc_8.add(infospotIMG_20240106_160343_lmc_80);
+infospotIMG_20240106_160343_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154835_lmc_8');
+});
+viewer.add( IMG_20240106_160343_lmc_8 );
+var IMG_20240106_160621_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_160621_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_160621_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_160621_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_160621_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_160621_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_160621_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+					infospotIMG_20240106_160621_lmc_80.position.set( 4891.26, -775.43, 648.39 );
+					IMG_20240106_160621_lmc_8.add(infospotIMG_20240106_160621_lmc_80);
+infospotIMG_20240106_160621_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155053_lmc_8');
+});
+viewer.add( IMG_20240106_160621_lmc_8 );
+var IMG_20240106_161158_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_161158_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_161158_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_161158_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_161158_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_161158_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_161158_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_161158_lmc_80.position.set( 1951.06, -2698.84, 3719.36 );
+					IMG_20240106_161158_lmc_8.add(infospotIMG_20240106_161158_lmc_80);
+infospotIMG_20240106_161158_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154701_lmc_8');
+});
+var infospotIMG_20240106_161158_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[6].data, true );
+					infospotIMG_20240106_161158_lmc_81.position.set( -4616.36, -1893.83, -195.76 );
+					IMG_20240106_161158_lmc_8.add(infospotIMG_20240106_161158_lmc_81);
+infospotIMG_20240106_161158_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_153121_lmc_8');
+});
+viewer.add( IMG_20240106_161158_lmc_8 );
+var IMG_20240106_170807_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_170807_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_170807_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_170807_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_170807_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_170807_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_170807_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_170807_lmc_80.position.set( -1563.07, -2186.19, 4206.74 );
+					IMG_20240106_170807_lmc_8.add(infospotIMG_20240106_170807_lmc_80);
+infospotIMG_20240106_170807_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_154701_lmc_8');
+});
+var infospotIMG_20240106_170807_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_170807_lmc_81.position.set( 4296.39, -2548.20, 53.75 );
+					IMG_20240106_170807_lmc_8.add(infospotIMG_20240106_170807_lmc_81);
+infospotIMG_20240106_170807_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_171006_lmc_8');
+});
+viewer.add( IMG_20240106_170807_lmc_8 );
+var IMG_20240106_171006_lmc_8 = new PANOLENS.ImagePanorama( "panoramas/IMG_20240106_171006_lmc_8.4.PHOTOSPHERE.jpg" );
+			IMG_20240106_171006_lmc_8.addEventListener('progress', onProgress);
+			IMG_20240106_171006_lmc_8.addEventListener('load', function(e){
+				endLoading();
+			});
+			IMG_20240106_171006_lmc_8.addEventListener('enter', function(e){
+				endLoading();
+			});
+			IMG_20240106_171006_lmc_8.addEventListener('click', function(e){
+			});
+
+var infospotIMG_20240106_171006_lmc_80 = new PANOLENS.Infospot( 512, hotspotIcons[12].data, true );
+					infospotIMG_20240106_171006_lmc_80.position.set( -4287.48, -2540.12, 310.20 );
+					IMG_20240106_171006_lmc_8.add(infospotIMG_20240106_171006_lmc_80);
+infospotIMG_20240106_171006_lmc_80.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_170807_lmc_8');
+});
+var infospotIMG_20240106_171006_lmc_81 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+					infospotIMG_20240106_171006_lmc_81.position.set( 4705.47, -1498.64, 730.68 );
+					IMG_20240106_171006_lmc_8.add(infospotIMG_20240106_171006_lmc_81);
+infospotIMG_20240106_171006_lmc_81.addEventListener('click', function(){
+ChangePanorama('IMG_20240106_155312_lmc_8');
+});
+viewer.add( IMG_20240106_171006_lmc_8 );
+$(document).ready(function(){ ChangePanorama('IMG_20240106_152750_lmc_8'); });
+
+/*panoramas-end*/
+            
+			var stilloading = true;
+			function onProgress ( event ) {
+				
+				progress = event.progress.loaded / event.progress.total * 100;
+				console.log("Loading panorama: " + progress + " ... ");
+				$("#loadingperc").html(Math.ceil(progress) + "%");
+				if(Math.ceil(progress) >= 100){
+					endLoading();
+					stilloading = false;
+
+				}else{
+				    clearTimeout(elTimer);
+					stilloading = true;
+					$("#loading").show();
+				}
+			}
+			
+			var elTimer;
+			function endLoading(){
+			    clearTimeout(elTimer);
+				if(stilloading == false){
+					elTimer = setTimeout(function(){
+						$("#loading").fadeOut();
+					}, 750);
+					
+				}
+			}
+			
+			function hideTemp(){
+				$("#tmp").fadeOut();
+				setTimeout(function(){
+					$("#tmpcontent").html("");
+				},1000);
+			}
+			
+			function showMedia(type, content){
+				switch(type){
+					case 1 :
+						//Image
+						$("#tmpcontent").html("<img src='"+content+"' style='width: 100%;'>");
+						$("#tmp").fadeIn();
+						break;
+					case 2 :
+						//Video
+						$("#tmpcontent").html("<video id='webvideo' controls autoplay style='width: 100%; height: 100%;'><source src='" +content+ "' type='video/mp4'> Your browser does not support the video tag. </video>");
+						$("#tmp").fadeIn();
+						break;
+					case 3 :
+						//Audio
+						$("#tmpcontent").html("<audio controls style='width: 100%;'><source src='"+content+"' type='audio/ogg'>Your browser does not support the audio tag.</audio>");
+						$("#tmp").fadeIn();
+						break;
+					case 4 :
+						//PDF
+						$("#tmpcontent").html("<iframe src='pdfjs/web/viewer.html?file=../../"+content+"' style='width: 100%; height: 99%;'></iframe>");
+						$("#tmp").fadeIn();
+						break;
+				}
+			}
+			
+			
+			
+			//Update Callback
+			viewer.addUpdateCallback(function(){
+				
+				/*viewerupdatecallback*/
+if(viewer.panorama == IMG_20240106_152750_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_153121_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_153242_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_153522_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_154011_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_154206_lmc_8){
+ShowMyInfospot(infospotIMG_20240106_154206_lmc_81, 'infospotIMG_20240106_154206_lmc_81');
+}
+
+if(viewer.panorama == IMG_20240106_154443_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_154701_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_154835_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_155053_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_155312_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_155515_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_155823_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_155951_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_160211_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_160343_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_160621_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_161158_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_170807_lmc_8){
+}
+
+if(viewer.panorama == IMG_20240106_171006_lmc_8){
+}
+/*viewerupdatecallback-end*/
+				
+				
+			});
+			
+			
+			
+			var hotspotsvisible = true;
+			function ShowMyInfospot(hs, elid){
+				var thehs = toScreenPosition(hs);
+				if(thehs.z < 1){
+					$("#" + elid).css({
+						"top" : (thehs.y - ($("#" + elid).height()/2)) + "px",
+						"left" : (thehs.x - ($("#" + elid).width()/2)) + "px",
+					});
+					if(hotspotsvisible)
+						$("#" + elid).show();
+				}else{
+					$("#" + elid).hide();
+				}
+				
+			}
+			
+			function toScreenPosition(obj)
+			{
+				var vector = new THREE.Vector3();
+				var widthHalf = 0.5 * innerWidth;
+				var heightHalf = 0.5 * innerHeight;
+				
+				//obj.updateMatrixWorld();				
+				vector.setFromMatrixPosition(obj.matrixWorld);
+				
+				
+				vector.project(viewer.camera);
+
+				vector.x = ( vector.x * widthHalf ) + widthHalf;
+				vector.y = - ( vector.y * heightHalf ) + heightHalf;
+
+				
+				return { 
+					x: vector.x,
+					y: vector.y,
+					z: vector.z,
+				};
+
+			};
+			
+			var currentPanorama;
+			function ChangePanorama(panorama){
+				currentPanorama = panorama;
+				HideInfospots(); 
+				$("#loading").fadeIn();
+				//$(".customhotspot").fadeOut();
+				setTimeout(function(){
+					viewer.setPanorama(window[panorama]);
+				}, 100);
+				setTimeout(function(){
+					$("#" + panorama).fadeIn();
+				}, 1000);
+				
+			}
+			
+			
+			
+			
+			
+			function HideInfospots(){
+				$(".customhotspot").fadeOut();
+			}
+
+			/*customjs*/
+function chclickinfospotIMG_20240106_154206_lmc_81(){ 
+window.open( 'https://www.youtube.com/@Javi_Gaming', '_blank');
+}
+/*customjs-end*/
+        </script>
+	</body>
+</html>
